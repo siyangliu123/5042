@@ -106,4 +106,14 @@ public class CustomerManagedBean {
         }
     }
 
+	public List<Customer> searchCustomerByTypeOfIndustry(String typeOfIndustry) {
+		try {
+            return customerRepository.searchCustomerByTypeOfIndustry(typeOfIndustry);
+        } catch (Exception ex) {
+            Logger.getLogger(CustomerManagedBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        return null;
+	}
+
 }

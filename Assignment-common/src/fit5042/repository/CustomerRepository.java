@@ -18,4 +18,6 @@ public interface CustomerRepository {
     public void deleteCustomer(int customerId) throws Exception;
     
     public void editCustomer(Customer customer) throws Exception;
+
+	public List<Customer> searchCustomerByTypeOfIndustry(String typeOfIndustry);
 }

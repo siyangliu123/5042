@@ -71,6 +71,16 @@ public class CustomerApplication {
     	customers.add(customerManagedBean.getCustomer(customerID));
     }
     
+    public void searchCustomerByTypeOfIndustry(String typeOfIndustry) {
+    	customers.clear();
+
+        for (Customer customer : customerManagedBean.searchCustomerByTypeOfIndustry(typeOfIndustry)) {
+        	customers.add(customer);
+        }
+
+        setCustomers(customers);
+    }
+    
     
     public void searchAll()
     {

@@ -19,7 +19,6 @@
             
            <h:form id="MyForm">
                 <table class="table table-bordered table-striped">
-                    <!-- For each property in properties ArrayList... --> 
                     <tr>
                             <td> 
                                 <h:outputLabel id="Id" value="Id"  />
@@ -41,9 +40,6 @@
                             </td>
                            <td> 
                                 <h:outputLabel id="TypeOfIndustry" value="Type of industry"/>
-                            </td>
-                            <td> 
-                                <h:outputLabel id="ContactCustomer" value="ContactCustomer"/>
                             </td>
                             <td> 
                                 <h:outputLabel id="Action" value="Action"/>
@@ -75,9 +71,6 @@
                             <td>
                                 <h:outputText id="customerTypeOfIndustry" value="#{customerApplication.customers.get(status.index).customerTypeOfIndustry}"></h:outputText>
                             </td>
-<td>
-                                <h:outputText id="customerContactCustomer" value="#{customerApplication.customers.get(status.index).customerContactCustomer}"></h:outputText>
-                            </td>
                             <td>
                                 <h:link value="View" outcome="/user/customer/view.xhtml" class="btn btn-sm btn-primary">
                                   <f:param name="customerID" value="#{customerApplication.customers.get(status.index).customerID}"/>
@@ -97,8 +90,24 @@
                     </ui:repeat> 
 
                 </table>
+                <div>
                <h:commandButton id="add" value="Add" action="add.xhtml" class="btn btn-primary" />
-                
+               <h:commandButton id="viewAll" value="View All" action="#{customerApplication.searchAll()}" class="btn btn-primary" >
+                        <f:param name="customerID" value="#{status.index + 1}"/>
+               </h:commandButton>
+               </div>
+               <div>
+                    <h:inputText value="#{searchCustomer.searchByInt}" id="searchById" required="true" onchange ="if (document.getElementById('MyForm:searchById').value.trim() == '') {document.getElementById('MyForm:searchById').value = 0;} "  /> 
+                    <h:commandButton id="searchId" value="Search by Id" action="#{searchCustomer.searchCustomerById(searchCustomer.searchByInt)}" class="btn btn-primary" >
+                        <f:param name="customerID" value="#{status.index + 1}"/>
+                    </h:commandButton>
+
+                    <h:inputText value="#{searchCustomer.searchByString}" id="searchByTypeOfIndustry" required="true" onchange="if (document.getElementById('MyForm:searchByTypeOfIndustry').value.trim() == '') {document.getElementById('MyForm:searchByTypeOfIndustry').value = 0.0;} " /> 
+                    <h:commandButton id="searchTypeOfIndustry" value="Search by Type of Industry" action="#{searchCustomer.searchCustomerByTypeOfIndustry(searchCustomer.searchByString)}" class="btn btn-primary" >
+                        <f:param name="customerID" value="#{status.index + 1}"/>
+                    </h:commandButton>
+
+                </div>
 			</h:form>
 			<br />
             <h:link outcome="/user/index" value="Go back to Home" />    
