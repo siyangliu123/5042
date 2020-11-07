@@ -81,6 +81,8 @@ public class ContactCustomerManagedBean {
         try {
             
         	contactCustomerRepository.editContactCustomer(contactCustomer);
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(contactCustomer.toString()));
+
             
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Customer Contact has been updated succesfully"));
         } catch (Exception ex) {

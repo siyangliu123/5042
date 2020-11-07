@@ -115,7 +115,7 @@ public class CustomerManagedBean {
             
             customerRepository.editCustomer(customer);
             
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Customer has been updated succesfully"));
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Edit Successfull"));
         } catch (Exception ex) {
             Logger.getLogger(CustomerManagedBean.class.getName()).log(Level.SEVERE, null, ex);
         }

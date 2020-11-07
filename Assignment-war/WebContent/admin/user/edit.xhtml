@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"      
+      xmlns:h="http://xmlns.jcp.org/jsf/html">
+    <h:head>
+        <h:outputStylesheet library="css" name="bootstrap.min.css"></h:outputStylesheet>
+        <title>#{titleController.pageTitle}</title> 
+    </h:head>
+    <h:body>
+        <div class="container">
+            <div class="navbar navbar-inverse">
+                <div class="navbar-brand">
+                    #{titleController.pageTitle} - Edit Users
+                </div>
+            </div>
+
+            <h:form id="MyForm">
+                <table class="table table-bordered ">
+
+                    <tr>
+                        <td width ="150" valign="top">Id:</td>
+                        
+                        <td valign="bottom">
+                            <h:outputLabel id = "Id" >#{usersController.user.userID}</h:outputLabel>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width ="100" valign="top">Username: </td>
+                        <td valign="bottom">
+                            <h:inputText id = "username" value="#{usersController.user.username}" binding="#{username}" required="true"
+                                         requiredMessage="Please enter username. "></h:inputText>    
+                        </td>
+                    </tr>
+                    <tr>
+                        <td width ="100" valign="top">Password: </td>
+                        <td valign="bottom">
+                            <h:inputText id = "password" value="#{usersController.user.password}" binding="#{password}" required="true"
+                                         requiredMessage="Please enter password. "></h:inputText>    
+                        </td>
+                    </tr>
+                   
+                    
+                </table>
+                
+                <h:commandButton id="save" value="Save" action="#{usersManagedBean.editUsers(usersController.user)}"  class="btn btn-primary save" >
+	            <f:param name="userID" value="#{usersController.user.userID}"/>
+	        </h:commandButton>
+                <h:link id="close" value="Close" outcome="/faces/admin/user/index.xhtml"
+						class="btn btn-primary" />
+            </h:form>
+        </div>
+    </h:body>
+</html>
+

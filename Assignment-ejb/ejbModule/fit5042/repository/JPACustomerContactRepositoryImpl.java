@@ -1,6 +1,5 @@
 package fit5042.repository;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -32,9 +31,9 @@ public class JPACustomerContactRepositoryImpl implements ContactCustomerReposito
 	public List<ContactCustomer> getAllContactCustomers() throws Exception {
 		
 		TypedQuery<ContactCustomer> query =
-		entityManager.createQuery("SELECT c FROM ContactCustomer c", ContactCustomer.class);
-		List<ContactCustomer> results = new ArrayList<ContactCustomer>(query.getResultList());
-		return results;
+	   			 entityManager.createQuery("SELECT c FROM ContactCustomer c", ContactCustomer.class);
+	   		  List<ContactCustomer> results = query.getResultList();
+	   		  return results;
 	}
 
 	@Override

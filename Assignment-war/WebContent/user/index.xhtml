@@ -11,6 +11,9 @@
 		<h:link outcome="/faces/user/customer/index" value="Customer Management" />
 		<br/>
 		<h:link outcome="/faces/user/contactcustomer/index" value="Contact Customer Management" />
-
+		<br/>
+		<h:link value="Change Password" outcome="/user/changePassword.xhtml" >
+		  <f:param name="userID" value="#{usersManagedBean.searchUsersByUsername().userID}"/>
+		</h:link>
 </body> 
 </html>

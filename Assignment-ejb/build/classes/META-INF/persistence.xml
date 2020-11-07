@@ -5,6 +5,7 @@
 		<jta-data-source>jdbc/fit5042week5</jta-data-source>
 		<class>fit5042.repository.entity.ContactCustomer</class>
 		<class>fit5042.repository.entity.Customer</class>
+		<class>fit5042.repository.entity.Users</class>
 		<exclude-unlisted-classes>true</exclude-unlisted-classes>
 		<properties>
 			<property name="eclipselink.ddl-generation" value="create"/>
