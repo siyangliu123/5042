@@ -54,9 +54,10 @@ public class AddCustomer {
  	   
        try
        {
+
     	   customerManagedBean.addCustomer(localCustomer);
-            app.searchAll();
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Customer has been added succesfully"));
+           app.searchAll();
+           FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Customer has been added succesfully"));
        }
        catch (Exception ex)
        {

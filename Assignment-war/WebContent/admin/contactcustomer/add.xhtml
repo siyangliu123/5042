@@ -14,7 +14,7 @@
         <div class="container">
             <div class="navbar navbar-inverse">
                 <div class="navbar-brand">
-                    #{titleController.pageTitle} - Add Customer
+                    #{titleController.pageTitle} - Add Contact Customer
                 </div>
             </div>
             <div>
@@ -23,138 +23,53 @@
                 <h1><h:outputText value="Create"/></h1>
                 
                 <table class="table table-bordered ">
-                    <tr class="#{!customerFirstName.valid ? 'has-error' : 'none'}">
+                    <tr class="#{!contactCustomerFirstName.valid ? 'has-error' : 'none'}">
                         <td width ="200">
-                            <h:outputLabel value="customerFirstName" for="customerFirstName" />
+                            <h:outputLabel value="contactCustomerFirstName" for="contactCustomerFirstName" />
                         </td>
                         <td>
-                            <h:inputText id="customerFirstName" value="#{customer.customerFirstName}" title="customerFirstName" required="true" requiredMessage="Please enter the first name!"  pt:placeholder="Joe" />
+                            <h:inputText id="contactCustomerFirstName" value="#{contactCustomer.contactCustomerFirstName}" title="contactCustomerFirstName" required="true" requiredMessage="Please enter the first name!"  pt:placeholder="Joe" />
                             <br/>
-                            <h:message for="customerFirstName" class="#{!customerFirstName.valid ? 'label label-warning' : 'none'}" />
+                            <h:message for="contactCustomerFirstName" class="#{!contactCustomerFirstName.valid ? 'label label-warning' : 'none'}" />
                         </td>
                     </tr>
-                    <tr class="#{!customerLastName.valid ? 'has-error' : 'none'}">
+                    <tr class="#{!contactCustomerLastName.valid ? 'has-error' : 'none'}">
                         <td width ="200">
-                            <h:outputLabel value="customerLastName" for="customerLastName" />
+                            <h:outputLabel value="contactCustomerLastName" for="contactCustomerLastName" />
                         </td>
                         <td>
-                            <h:inputText id="customerLastName" value="#{customer.customerLastName}" title="customerLastName" required="true" requiredMessage="Please enter the last name!"  pt:placeholder="Doe" />
+                            <h:inputText id="contactCustomerLastName" value="#{contactCustomer.contactCustomerLastName}" title="contactCustomerLastName" required="true" requiredMessage="Please enter the last name!"  pt:placeholder="Doe" />
                             <br/>
-                            <h:message for="customerLastName" class="#{!customerLastName.valid ? 'label label-warning' : 'none'}" />
+                            <h:message for="contactCustomerLastName" class="#{!contactCustomerLastName.valid ? 'label label-warning' : 'none'}" />
                         </td>
                     </tr>
-                    <tr class="#{!customerPhone.valid ? 'has-error' : 'none'}">
+                    <tr class="#{!contactCustomerPhone.valid ? 'has-error' : 'none'}">
                         <td width ="200">
-                            <h:outputLabel value="customerPhone" for="customerPhone" />
+                            <h:outputLabel value="contactCustomerPhone" for="contactCustomerPhone" />
                         </td>
                         <td>
-                            <h:inputText id="customerPhone" value="#{customer.customerPhone}" title="customerPhone" required="true" requiredMessage="Please enter the phone number!"  pt:placeholder="04xxxxxxxxxx" />
+                            <h:inputText id="contactCustomerPhone" value="#{contactCustomer.contactCustomerPhone}" title="contactCustomerPhone" required="true" requiredMessage="Please enter the phone number!"  pt:placeholder="04xxxxxxxxxx" />
                             <br/>
-                            <h:message for="customerPhone" class="#{!customerPhone.valid ? 'label label-warning' : 'none'}" />
+                            <h:message for="contactCustomerPhone" class="#{!contactCustomerPhone.valid ? 'label label-warning' : 'none'}" />
                         </td>
                     </tr>
-                    <tr class="#{!customerEmail.valid ? 'has-error' : 'none'}">
+                    <tr class="#{!contactCustomerEmail.valid ? 'has-error' : 'none'}">
                         <td width ="200">
-                            <h:outputLabel value="customerEmail" for="customerEmail" />
+                            <h:outputLabel value="contactCustomerEmail" for="contactCustomerEmail" />
                         </td>
                         <td>
-                            <h:inputText id="customerEmail" value="#{customer.customerEmail}" title="customerEmail" required="true" requiredMessage="Please enter the email!"  pt:placeholder="joedoe@gmail.com" />
+                            <h:inputText id="contactCustomerEmail" value="#{contactCustomer.contactCustomerEmail}" title="contactCustomerEmail" required="true" requiredMessage="Please enter the email!"  pt:placeholder="joedoe@gmail.com" />
                             <br/>
-                            <h:message for="customerEmail" class="#{!customerEmail.valid ? 'label label-warning' : 'none'}" />
-                        </td>
-                    </tr>
-                    <tr class="#{!streetNumber.valid ? 'has-error' : 'none'}">
-                        <td width ="200">
-                            <h:outputLabel value="streetNumber" for="streetNumber" />
-                        </td>
-                        <td>
-                            <h:inputText id="streetNumber" value="#{customer.streetNumber}" title="streetNumber" required="true" requiredMessage="Please enter the street number" validatorMessage="Please enter a street number between 1 and 1000" converterMessage="Please enter a number" pt:placeholder="999">
-                            	<f:convertNumber integerOnly="true"/>
-								<f:validateLongRange minimum="1" maximum="1000" /> 
-								</h:inputText>
-                            <br/>
-                            <h:message for="streetNumber" class="#{!streetNumber.valid ? 'label label-warning' : 'none'}" />
-                        </td>
-                    </tr>
-                    <tr class="#{!streetAddress.valid ? 'has-error' : 'none'}">
-                        <td width ="200">
-                            <h:outputLabel value="streetAddress" for="streetAddress" />
-                        </td>
-                        <td>
-                            <h:inputText id="streetAddress" value="#{customer.streetAddress}" title="streetAddress" required="true" requiredMessage="Please enter the street address"  pt:placeholder="Dandenong Road" />
-                            <br/>
-                            <h:message for="streetAddress" class="#{!streetAddress.valid ? 'label label-warning' : 'none'}" />
-                        </td>
-                    </tr>
-                    <tr class="#{!suburb.valid ? 'has-error' : 'none'}">
-                        <td width ="200">
-                            <h:outputLabel value="suburb" for="suburb" />
-                        </td>
-                        <td>
-                            <h:inputText id="suburb" value="#{customer.suburb}" title="suburb" required="true" requiredMessage="Please enter the suburb"  pt:placeholder="Clayton" />
-                            <br/>
-                            <h:message for="suburb" class="#{!suburb.valid ? 'label label-warning' : 'none'}" />
-                        </td>
-                    </tr>
-                    <tr class="#{!state.valid ? 'has-error' : 'none'}">
-                        <td width ="200">
-                            <h:outputLabel value="state" for="state" />
-                        </td>
-                        <td>
-                            <h:inputText id="state" value="#{customer.state}" title="state" required="true" requiredMessage="Please enter the state"  pt:placeholder="VIC" />
-                            <br/>
-                            <h:message for="state" class="#{!state.valid ? 'label label-warning' : 'none'}" />
-                        </td>
-                    </tr>
-                    <tr class="#{!postcode.valid ? 'has-error' : 'none'}">
-                        <td width ="200">
-                            <h:outputLabel value="postcode" for="postcode" />
-                        </td>
-                        <td>
-                            <h:inputText id="postcode" value="#{customer.postcode}" title="postcode" required="true" requiredMessage="Please enter the postcode!" validatorMessage="Please enter a postcode between 0200 and 4700" converterMessage="Please enter a number"  pt:placeholder="3000">
-                            	<f:convertNumber integerOnly="true"/>
-								<f:validateLongRange minimum="200" maximum="4700" />
-                            </h:inputText>
-                            <br/>
-                            <h:message for="postcode" class="#{!postcode.valid ? 'label label-warning' : 'none'}" />
-                        </td>
-                    </tr>
-                    <tr class="#{!customerTypeOfIndustry.valid ? 'has-error' : 'none'}">
-                        <td width ="200">
-                            <h:outputLabel value="customerTypeOfIndustry" for="customerTypeOfIndustry" />
-                        </td>
-                        <td>
-                        <h:selectOneMenu id="customerTypeOfIndustry"
-						                 required="true"
-						                 value="#{customer.customerTypeOfIndustry}"
-						                 title="customerTypeOfIndustry">
-						    <f:selectItem itemValue="Bank"
-						                  itemLabel="Bank"/>
-						    <f:selectItem itemValue="Building"
-						                  itemLabel="Building"/>
-						    <f:selectItem itemValue="Data Communication"
-						                  itemLabel="Data Communication"/>
-						    <f:selectItem itemValue="Education"
-						                  itemLabel="Education"/>
-						    <f:selectItem itemValue="Farm"
-						                  itemLabel="Farm"/>
-						    <f:selectItem itemValue="Health"
-						                  itemLabel="Health"/>
-						    <f:selectItem itemValue="Mining"
-						                  itemLabel="Mining"/>
-						    <f:selectItem itemValue="Publishing"
-						                  itemLabel="Publishing"/>
-						 </h:selectOneMenu>
-                            <br/>
-                            <h:message for="customerTypeOfIndustry" class="#{!customerTypeOfIndustry.valid ? 'label label-warning' : 'none'}" />
+                            <h:message for="contactCustomerEmail" class="#{!contactCustomerEmail.valid ? 'label label-warning' : 'none'}" />
                         </td>
                     </tr>
 
+
                 </table>
                 
-                <h:commandButton id="submit" value="Submit" action="#{addCustomer.addCustomer(customer)}" class="btn btn-primary" >
+                <h:commandButton id="submit" value="Submit" action="#{contactCustomerController.addContactCustomer(contactCustomer)}" class="btn btn-primary" >
                 </h:commandButton>
-                <h:link id="close" value="Close" outcome="/faces/admin/customer/index.xhtml"
+                <h:link id="close" value="Close" outcome="/faces/admin/contactcustomer/index.xhtml"
 						class="btn btn-primary" />
             	
             </h:form>

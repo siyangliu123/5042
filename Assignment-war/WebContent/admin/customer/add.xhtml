@@ -58,7 +58,9 @@
                             <h:outputLabel value="customerEmail" for="customerEmail" />
                         </td>
                         <td>
-                            <h:inputText id="customerEmail" value="#{customer.customerEmail}" title="customerEmail" required="true" requiredMessage="Please enter the email!"  pt:placeholder="joedoe@gmail.com" />
+                            <h:inputText id="customerEmail" value="#{customer.customerEmail}" title="customerEmail" required="true" requiredMessage="Please enter the email!" validatorMessage="#{customer.customerEmail} is not valid email address" pt:placeholder="joedoe@gmail.com">
+                            <f:validateRegex pattern="[\w\.-]*[a-zA-Z0-9_]@[\w\.-]*[a-zA-Z0-9]\.[a-zA-Z][a-zA-Z\.]*[a-zA-Z]" />
+                            </h:inputText>
                             <br/>
                             <h:message for="customerEmail" class="#{!customerEmail.valid ? 'label label-warning' : 'none'}" />
                         </td>
@@ -158,7 +160,7 @@
 						class="btn btn-primary" />
             	
             </h:form>
-			
+			<p:messages showDetail="true" />
         </f:view>
             </div>
         </div>

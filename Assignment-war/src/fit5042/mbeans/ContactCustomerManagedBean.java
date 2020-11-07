@@ -8,6 +8,7 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import fit5042.repository.ContactCustomerRepository;
@@ -60,6 +61,9 @@ public class ContactCustomerManagedBean {
         customer.setContactCustomerLastName(customerLastName);
         customer.setContactCustomerPhone(customerPhone);
         customer.setContactCustomerEmail(customerEmail);
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        String username = ec.getRemoteUser();
+        customer.setCreatedBy(username);
         return customer;
 	}
     

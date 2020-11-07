@@ -21,9 +21,8 @@ public class JPACustomerRepositoryImpl implements CustomerRepository {
     @Override
     public void addCustomer(Customer customer) throws Exception {
     	List<Customer> customers =  entityManager.createNamedQuery(customer.GET_ALL_QUERY_NAME).getResultList(); 
-        customer.setCustomerID(customers.get(0).getCustomerID() + 1);
+        customer.setCustomerID(customers.size() + 1);
         entityManager.persist(customer);
-        System.out.println(customer);
     }
      
     @Override
@@ -70,8 +69,18 @@ public class JPACustomerRepositoryImpl implements CustomerRepository {
         List<Customer> lp = entityManager.createQuery(query).getResultList();
         return lp;
 	}
+    
+    @Override
+	public List<Customer> searchCustomerByUser(String username) {
+    	CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery query = builder.createQuery(Customer.class);
+        Root<Customer> p = query.from(Customer.class);
+        query.select(p).where(builder.equal(p.get("createdBy").as(String.class), username));
+        List<Customer> lp = entityManager.createQuery(query).getResultList();
+        return lp;
+	}
 
-
+    
 
 }
 

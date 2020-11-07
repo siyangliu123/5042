@@ -29,6 +29,8 @@ public class ContactCustomer implements Serializable{
 	private String contactCustomerPhone;
     @Column
 	private String contactCustomerEmail;
+    @Column
+	private String createdBy;
 
 	private int customerID;
     
@@ -67,13 +69,94 @@ public class ContactCustomer implements Serializable{
 		this.contactCustomerEmail = contactCustomerEmail;
 	}
     @ManyToOne
-    @JoinColumn(name = "customer_id")
+    @JoinColumn(name = "customerID")
 	public int getContactCustomer() {
 		return customerID;
 	}
 	public void setContactCustomer(int customerID) {
 		this.customerID = customerID;
 	}
+
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
+	}
+
+	public int getCustomerID() {
+		return customerID;
+	}
+
+	public void setCustomerID(int customerID) {
+		this.customerID = customerID;
+	}
+	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((contactCustomerEmail == null) ? 0 : contactCustomerEmail.hashCode());
+		result = prime * result + ((contactCustomerFirstName == null) ? 0 : contactCustomerFirstName.hashCode());
+		result = prime * result + contactCustomerID;
+		result = prime * result + ((contactCustomerLastName == null) ? 0 : contactCustomerLastName.hashCode());
+		result = prime * result + ((contactCustomerPhone == null) ? 0 : contactCustomerPhone.hashCode());
+		result = prime * result + ((createdBy == null) ? 0 : createdBy.hashCode());
+		result = prime * result + customerID;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		ContactCustomer other = (ContactCustomer) obj;
+		if (contactCustomerEmail == null) {
+			if (other.contactCustomerEmail != null)
+				return false;
+		} else if (!contactCustomerEmail.equals(other.contactCustomerEmail))
+			return false;
+		if (contactCustomerFirstName == null) {
+			if (other.contactCustomerFirstName != null)
+				return false;
+		} else if (!contactCustomerFirstName.equals(other.contactCustomerFirstName))
+			return false;
+		if (contactCustomerID != other.contactCustomerID)
+			return false;
+		if (contactCustomerLastName == null) {
+			if (other.contactCustomerLastName != null)
+				return false;
+		} else if (!contactCustomerLastName.equals(other.contactCustomerLastName))
+			return false;
+		if (contactCustomerPhone == null) {
+			if (other.contactCustomerPhone != null)
+				return false;
+		} else if (!contactCustomerPhone.equals(other.contactCustomerPhone))
+			return false;
+		if (createdBy == null) {
+			if (other.createdBy != null)
+				return false;
+		} else if (!createdBy.equals(other.createdBy))
+			return false;
+		if (customerID != other.customerID)
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "ContactCustomer [contactCustomerID=" + contactCustomerID + ", contactCustomerFirstName="
+				+ contactCustomerFirstName + ", contactCustomerLastName=" + contactCustomerLastName
+				+ ", contactCustomerPhone=" + contactCustomerPhone + ", contactCustomerEmail=" + contactCustomerEmail
+				+ ", createdBy=" + createdBy + ", customerID=" + customerID + "]";
+	}
+	
     
     
     

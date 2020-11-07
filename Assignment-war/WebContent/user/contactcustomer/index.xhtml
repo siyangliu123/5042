@@ -40,7 +40,7 @@
                             </td>
                      </tr>
                      <ui:repeat id="Myrepeat" value="#{contactCustomerController.contactCustomers}"  var="contactCustomer" varStatus="status"> 
-                        
+                        <ui:fragment rendered="#{contactCustomerController.contactCustomers.get(status.index).createdBy==request.getRemoteUser()}">
                         <tr> 
                             <td>
                                 <h:outputText value="#{contactCustomerController.contactCustomers.get(status.index).contactCustomerID}" id="contactCustomerID" /> 
@@ -72,9 +72,8 @@
                                     
                                 <h:outputText value=" "/>
                             </td>
-                            
                         </tr> 
-
+					</ui:fragment>
                     </ui:repeat> 
 
                 </table>

@@ -38,6 +38,8 @@ public class Customer implements Serializable{
     private List<ContactCustomer> customerContactCustomer;
     @Column
 	private String customerTypeOfIndustry;
+    @Column
+	private String createdBy;
 	
 
     public Customer() {
@@ -105,6 +107,14 @@ public class Customer implements Serializable{
 	}
 	public void setCustomerTypeOfIndustry(String customerTypeOfIndustry) {
 		this.customerTypeOfIndustry = customerTypeOfIndustry;
+	}
+	
+	public String getCreatedBy() {
+		return createdBy;
+	}
+
+	public void setCreatedBy(String createdBy) {
+		this.createdBy = createdBy;
 	}
 
 	@Override

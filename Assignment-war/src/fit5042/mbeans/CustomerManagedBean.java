@@ -8,6 +8,7 @@ import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 
 import fit5042.repository.CustomerRepository;
@@ -29,6 +30,17 @@ public class CustomerManagedBean {
         }
         return null;
 	}
+	
+	public List<Customer> getUserCustomers(String username) {
+		try {
+            List<Customer> customers = customerRepository.searchCustomerByUser(username);
+            return customers;
+        } catch (Exception ex) {
+            Logger.getLogger(CustomerManagedBean.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return null;
+	}
+	
 
 	public Customer getCustomer(int customerID) {
 		try {
@@ -78,6 +90,9 @@ public class CustomerManagedBean {
         customer.setCustomerEmail(customerEmail);
         customer.setCustomerAddress(customerAddress);
         customer.setCustomerTypeOfIndustry(customerTypeOfIndustry);
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        String username = ec.getRemoteUser();
+        customer.setCreatedBy(username);
         return customer;
 	}
     

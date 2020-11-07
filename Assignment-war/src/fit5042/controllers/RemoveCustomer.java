@@ -4,6 +4,7 @@ import javax.el.ELContext;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedProperty;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
@@ -40,8 +41,9 @@ public class RemoveCustomer {
                         .getApplication()
                         .getELResolver()
                         .getValue(context, null, "customerApplication");
-        
-        app.updateCustomerList();
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        String username = ec.getRemoteUser();
+        app.updateCustomerList(username);
         
         //instantiate customerManagedBean
         ELContext elContext = FacesContext.getCurrentInstance().getELContext();
@@ -54,7 +56,9 @@ public class RemoveCustomer {
        try
        {
             customerManagedBean.removeCustomer(customerId);
-            app.searchAll();
+            ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+            String username = ec.getRemoteUser();
+            app.updateCustomerList(username);
 
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage("Customer has been deleted succesfully"));     
        }

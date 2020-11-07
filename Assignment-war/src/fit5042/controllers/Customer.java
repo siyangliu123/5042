@@ -21,6 +21,7 @@ public class Customer implements Serializable {
 	private String customerEmail;
 	private Address customerAddress;
 	private String customerTypeOfIndustry;
+	private String createBy;
 	
 	private String streetNumber;
     private String streetAddress;
@@ -163,6 +164,14 @@ public class Customer implements Serializable {
 
 	public void setCustomers(Set<Customer> customers) {
 		this.customers = customers;
+	}
+
+	public String getCreateBy() {
+		return createBy;
+	}
+
+	public void setCreateBy(String createBy) {
+		this.createBy = createBy;
 	}
 
     

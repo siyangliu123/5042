@@ -12,7 +12,7 @@
         <div class="container">
             <div class="navbar navbar-inverse">
                 <div class="navbar-brand">
-                    #{titleController.pageTitle} - Customer Detail
+                    #{titleController.pageTitle} - Contact Customer Detail
                 </div>
             </div>
 
@@ -22,62 +22,41 @@
                         <td width ="150" valign="top">Id:</td>
                         
                         <td valign="bottom">
-                            <h:outputLabel id = "Id" >#{customerController.customer.customerID}</h:outputLabel>    
+                            <h:outputLabel id = "Id" >#{contactCustomerController.contactCustomer.contactCustomerID}</h:outputLabel>    
                         </td>
                     </tr>
                     <tr>
                         <td width ="100" valign="top">First Name:</td>
                         
                         <td valign="bottom">
-                            <h:outputLabel id = "FristName" >#{customerController.customer.customerFirstName}</h:outputLabel>    
+                            <h:outputLabel id = "FristName" >#{contactCustomerController.contactCustomer.contactCustomerFirstName}</h:outputLabel>    
                         </td>
                     </tr>
                     <tr>
                         <td width ="100" valign="top">Last Name:</td>
                         
                         <td valign="bottom">
-                            <h:outputLabel id = "LastName" >#{customerController.customer.customerLastName}</h:outputLabel>    
-                        </td>
-                    </tr>
-                     <tr>
-                        <td width ="100" valign="top">Address:</td>
-                        
-                        <td valign="bottom">
-                            <h:outputLabel id = "Address" >#{customerController.customer.customerAddress}</h:outputLabel>    
+                            <h:outputLabel id = "LastName" >#{contactCustomerController.contactCustomer.contactCustomerLastName}</h:outputLabel>    
                         </td>
                     </tr>
                     <tr>
                         <td width ="100" valign="top">Phone:</td>
                         
                         <td valign="bottom">
-                            <h:outputLabel id = "Phone" >#{customerController.customer.customerPhone}</h:outputLabel>    
+                            <h:outputLabel id = "Phone" >#{contactCustomerController.contactCustomer.contactCustomerPhone}</h:outputLabel>    
                         </td>
                     </tr>
                     <tr>
                         <td width ="100" valign="top">Email:</td>
                         
                         <td valign="bottom">
-                            <h:outputLabel id = "Email" >#{customerController.customer.customerEmail}</h:outputLabel>    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width ="100" valign="top">Type of Industry:</td>
-                        
-                        <td valign="bottom">
-                            <h:outputLabel id = "TypeOfIndustry" >#{customerController.customer.customerTypeOfIndustry}</h:outputLabel>    
-                        </td>
-                    </tr>
-                    <tr>
-                        <td width ="100" valign="top">Contact Customers:</td>
-                        
-                        <td valign="bottom">
-                            <h:outputLabel id = "ContactCustomer" >#{customerController.customer.customerContactCustomer}</h:outputLabel>    
+                            <h:outputLabel id = "Email" >#{contactCustomerController.contactCustomer.contactCustomerEmail}</h:outputLabel>    
                         </td>
                     </tr>
 
                     
                  </table>   
-                 <h:link id="close" value="Close" outcome="/faces/admin/customer/index.xhtml"
+                 <h:link id="close" value="Close" outcome="/faces/admin/contactcustomer/index.xhtml"
 						class="btn btn-primary" />
                 
             </h:form>

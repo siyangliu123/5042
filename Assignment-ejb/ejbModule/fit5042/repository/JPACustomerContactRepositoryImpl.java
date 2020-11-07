@@ -18,7 +18,7 @@ public class JPACustomerContactRepositoryImpl implements ContactCustomerReposito
 	@Override
 	public void addContactCustomer(ContactCustomer contactCustomer) throws Exception {
 		List<ContactCustomer> contactCustomers =  entityManager.createNamedQuery(contactCustomer.GET_ALL_QUERY_NAME).getResultList(); 
-		contactCustomer.setContactCustomerID(contactCustomers.get(0).getContactCustomerID() + 1);
+		contactCustomer.setContactCustomerID(contactCustomers.size() + 1);
         entityManager.persist(contactCustomer);		
 	}
 

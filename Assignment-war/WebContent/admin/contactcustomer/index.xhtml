@@ -13,13 +13,12 @@
         <div class="container">
             <div class="navbar navbar-inverse">
                 <div class="navbar-brand">
-                    #{titleController.pageTitle} - Customer  List
+                    #{titleController.pageTitle} - Contact Customer  List
                 </div>
             </div>
             
            <h:form id="MyForm">
                 <table class="table table-bordered table-striped">
-                    <!-- For each property in properties ArrayList... --> 
                     <tr>
                             <td> 
                                 <h:outputLabel id="Id" value="Id"  />
@@ -37,61 +36,43 @@
                                 <h:outputLabel id="Email" value="Email"/>
                             </td>
                             <td> 
-                                <h:outputLabel id="Address" value="Address"/>
-                            </td>
-                           <td> 
-                                <h:outputLabel id="TypeOfIndustry" value="Type of industry"/>
-                            </td>
-                            <td> 
-                                <h:outputLabel id="ContactCustomer" value="ContactCustomer"/>
-                            </td>
-                            <td> 
                                 <h:outputLabel id="Action" value="Action"/>
                             </td>
                      </tr>
-                     <ui:repeat id="Myrepeat" value="#{customerApplication.customers}"  var="customer" varStatus="status"> 
+                     <ui:repeat id="Myrepeat" value="#{contactCustomerController.contactCustomers}"  var="contactCustomer" varStatus="status"> 
                         
-                        <tr onclick="document.getElementById('MyForm:principle').value = document.getElementById('MyForm:Myrepeat:#{status.index}:customerFirstName').textContent"> 
+                        <tr> 
                             <td>
-                                <h:outputText value="#{customerApplication.customers.get(status.index).customerID}" id="customerID" /> 
-                                
+                                <h:outputText value="#{contactCustomerController.contactCustomers.get(status.index).contactCustomerID}" id="contactCustomerID" /> 
                             </td>
                             
                             <td> 
-                                <h:outputText id="customerFirstName" value="#{customerApplication.customers.get(status.index).customerFirstName}"  />
+                                <h:outputText id="contactCustomerFirstName" value="#{contactCustomerController.contactCustomers.get(status.index).contactCustomerFirstName}"  />
                             </td>
                             <td>
-                                <h:outputText id="customerLastName" value="#{customerApplication.customers.get(status.index).customerLastName}"></h:outputText>
+                                <h:outputText id="contactCustomerLastName" value="#{contactCustomerController.contactCustomers.get(status.index).contactCustomerLastName}"></h:outputText>
                             </td>
                             <td>
-                                <h:outputText id="customerPhone" value="#{customerApplication.customers.get(status.index).customerPhone}"></h:outputText>
+                                <h:outputText id="contactCustomerPhone" value="#{contactCustomerController.contactCustomers.get(status.index).contactCustomerPhone}"></h:outputText>
                             </td>
                             <td>
-                                <h:outputText id="customerEmail" value="#{customerApplication.customers.get(status.index).customerEmail}"></h:outputText>
+                                <h:outputText id="contactCustomerEmail" value="#{contactCustomerController.contactCustomers.get(status.index).contactCustomerEmail}"></h:outputText>
                             </td>
                             <td>
-                                <h:outputText id="customerAddress" value="#{customerApplication.customers.get(status.index).customerAddress}"></h:outputText>
-                            </td>
-                            <td>
-                                <h:outputText id="customerTypeOfIndustry" value="#{customerApplication.customers.get(status.index).customerTypeOfIndustry}"></h:outputText>
-                            </td>
-<td>
-                                <h:outputText id="customerContactCustomer" value="#{customerApplication.customers.get(status.index).customerContactCustomer}"></h:outputText>
-                            </td>
-                            <td>
-                                <h:link value="View" outcome="/admin/customer/view.xhtml" class="btn btn-sm btn-primary">
-                                  <f:param name="customerID" value="#{status.index + 1}"/>
+                                <h:link value="View" outcome="/admin/contactcustomer/view.xhtml" class="btn btn-sm btn-primary">
+                                  <f:param name="contactCustomerID" value="#{contactCustomerController.contactCustomers.get(status.index).contactCustomerID}"/>
                                 </h:link>
 
-                                <h:link value="Edit" outcome="/admin/customer/edit.xhtml" class="btn btn-sm btn-primary">
-                                  <f:param name="customerID" value="#{status.index + 1}"/>
+                                <h:link value="Edit" outcome="/admin/contactcustomer/edit.xhtml" class="btn btn-sm btn-primary">
+                                  <f:param name="contactCustomerID" value="#{contactCustomerController.contactCustomers.get(status.index).contactCustomerID}"/>
                                 </h:link>
                                 
-                                <h:commandLink class="btn btn-sm btn-warning" value="Delete" action="#{removeCustomer.removeCustomer(customerApplication.customers.get(status.index).customerID)}" disabled="#{customerApplication.customers.get(status.index).customerID == null}">
+                                <h:commandLink class="btn btn-sm btn-warning" value="Delete" action="#{contactCustomerController.removeContactCustomer(contactCustomerController.contactCustomers.get(status.index).contactCustomerID)}" disabled="#{contactCustomerController.contactCustomers.get(status.index).contactCustomerID == null}">
                                 </h:commandLink>
                                     
                                 <h:outputText value=" "/>
                             </td>
+                            
                         </tr> 
 
                     </ui:repeat> 

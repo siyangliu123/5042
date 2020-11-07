@@ -2,6 +2,7 @@ package fit5042.controllers;
 
 import javax.el.ELContext;
 import javax.enterprise.context.RequestScoped;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
@@ -83,8 +84,9 @@ public class SearchCustomer {
                 .getApplication()
                 .getELResolver()
                 .getValue(context, null, "customerApplication");
-
-        app.updateCustomerList();
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        String username = ec.getRemoteUser();
+        app.updateCustomerList(username);
     }
 
     /**

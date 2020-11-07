@@ -16,6 +16,7 @@ public class ContactCustomer implements Serializable {
 	private String contactCustomerPhone;
 	private String contactCustomerEmail;
 	private int customerID;
+	private String contactCustomerCreatedBy;
 	
 	Set<ContactCustomer> contactCustomers;
 
@@ -147,6 +148,14 @@ public class ContactCustomer implements Serializable {
 
 	public void setCustomerID(int customerID) {
 		this.customerID = customerID;
+	}
+
+	public String getContactCustomerCreatedBy() {
+		return contactCustomerCreatedBy;
+	}
+
+	public void setContactCustomerCreatedBy(String contactCustomerCreatedBy) {
+		this.contactCustomerCreatedBy = contactCustomerCreatedBy;
 	}
 	
 	

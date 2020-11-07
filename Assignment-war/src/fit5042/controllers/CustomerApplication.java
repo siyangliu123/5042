@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import javax.el.ELContext;
 import javax.enterprise.context.ApplicationScoped;
 import javax.faces.annotation.ManagedProperty;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
@@ -34,7 +35,9 @@ public class CustomerApplication {
         customerManagedBean = (CustomerManagedBean) FacesContext.getCurrentInstance().getApplication()
         .getELResolver().getValue(elContext, null, "customerManagedBean");
         
-        updateCustomerList();
+        ExternalContext ec = FacesContext.getCurrentInstance().getExternalContext();
+        String username = ec.getRemoteUser();
+        searchAll();
     }
 
     public ArrayList<Customer> getCustomers() {
@@ -45,8 +48,9 @@ public class CustomerApplication {
         this.customers = newCustomers;
     }
     
-    public void updateCustomerList()
+    public void updateCustomerList(String username)
     {
+    	
         if (customers != null && customers.size() > 0)
         {
             
@@ -54,11 +58,19 @@ public class CustomerApplication {
         else
         {
         	customers.clear();
-
-            for (Customer customer : customerManagedBean.getAllCustomers())
-            {
-            	customers.add(customer);
-            }
+        	if(username!="admin") {
+        		for (Customer customer : customerManagedBean.getUserCustomers(username))
+                {
+                	customers.add(customer);
+                }
+        	}
+        	else {
+        		for (Customer customer : customerManagedBean.getAllCustomers())
+                {
+                	customers.add(customer);
+                }
+        	}
+            
 
             setCustomers(customers);
         }

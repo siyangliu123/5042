@@ -120,7 +120,7 @@
                 </table>
                 
                 <h:commandButton id="save" value="Save" action="#{customerManagedBean.editCustomer(customerController.customer)}"  class="btn btn-primary" >
-                    <f:param name="customerID" value="#{customerController.customerID+1}"/>
+                    <f:param name="customerID" value="#{customerController.customer.customerID}"/>
                 </h:commandButton>
                 <h:link id="close" value="Close" outcome="/faces/admin/customer/index.xhtml"
 						class="btn btn-primary" />
