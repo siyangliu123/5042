@@ -115,7 +115,18 @@
                                          requiredMessage="Please enter postcode. "></h:inputText>    
                         </td>
                     </tr>
-                    
+                    <tr>
+                        <td width ="100" valign="top">Assigned User: </td>
+                        <td valign="bottom">
+                          <h:selectOneMenu id="createdBy"
+						                 required="true"
+						                 value="#{customerController.customer.createdBy}"
+						                 binding="#{customerCreatedBy}">
+						    <f:selectItems value="#{usersApplication.users}" itemLabel="#{u.getUsername()}" var="u" itemValue="#{u.username}"/>
+						 </h:selectOneMenu>    
+                                          
+                        </td>
+                    </tr>
                     
                 </table>
                 
